@@ -22,8 +22,16 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
+  if (typeof n !== "number") return NaN;
+  else if (n < 0) return undefined;
+
+  let factorial = 1;
+  for (let i = 1; i <= n; i++) {
+    factorial *= i;
+  }
+  return factorial;
 }
+// TODO
 
 /**
  * @param {number} n
@@ -32,6 +40,16 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
+  const arrayBuilt = [];
+  if (typeof n !== "number") {
+    return null;
+  } else if (n <= 0) {
+    return arrayBuilt;
+  }
+  for (let num = 1; num <= n; num++) {
+    arrayBuilt.push(num);
+  }
+  return arrayBuilt;
   // TODO
 }
 
@@ -41,6 +59,19 @@ export function buildNArray(n) {
  */
 export function getLongestString(strings) {
   // TODO
+  let stringLongest = "";
+  if (!Array.isArray(strings)) {
+    return undefined;
+  }
+  if (strings.length === 0) {
+    return "";
+  }
+  for (let i = 0; i < strings.length; i++) {
+    if (strings[i].length > stringLongest.length) {
+      stringLongest = strings[i];
+    }
+  }
+  return stringLongest;
 }
 
 /**
@@ -49,6 +80,16 @@ export function getLongestString(strings) {
  */
 export function countPresent(attendance) {
   // TODO
+  if (attendance.length === 0) {
+    return 0;
+  }
+  let countOfPresent = 0;
+  for (const value of attendance) {
+    if (value === true) {
+      countOfPresent+=1;
+    }
+  }
+  return countOfPresent;
 }
 
 /**
@@ -63,4 +104,12 @@ export function countPresent(attendance) {
  */
 export function complementDNA(dna) {
   // TODO
+  let dnaComplement = "";
+  if (typeof dna !== "string") {
+    return null;
+  }
+  if (dna.length === 0) {
+    return "";
+  }
+  return dnaComplement;
 }
